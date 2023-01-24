@@ -1,0 +1,1915 @@
+{
+	"info": {
+		"_postman_id": "a40b8a82-65ab-4b2d-b31f-796a8376ec0d",
+		"name": "Skytrax Command & Control Interface Collection",
+		"description": "This API specifies the operations on Skytrax condition monitor device.\n\nContact Support:\n Email: qnguyen@cryoport.com",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_uid": "19491185-a40b8a82-65ab-4b2d-b31f-796a8376ec0d"
+	},
+	"item": [
+		{
+			"name": "registrations",
+			"item": [
+				{
+					"name": "{deviceId}",
+					"item": [
+						{
+							"name": "Get device specific registration information",
+							"id": "1dfd21ad-33b4-4db8-96a3-d3eb9b4dc73c",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/registrations/:deviceId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"registrations",
+										":deviceId"
+									],
+									"variable": [
+										{
+											"key": "deviceId",
+											"value": "EF199Aef5cA5cCA",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Returns device specific registration information\n"
+							},
+							"response": [
+								{
+									"id": "3d25feda-94fb-47ee-b6ea-4b063542c3d8",
+									"name": "Successfully retrieved a device's registration info",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"url": {
+											"raw": "{{baseUrl}}/registrations/:deviceId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"registrations",
+												":deviceId"
+											],
+											"variable": [
+												{
+													"key": "deviceId",
+													"value": "EF199Aef5cA5cCA",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Returns device specific registration information\n"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"deviceId\": \"<string>\",\n  \"model_number\": \"DL1000\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Update Device Registration",
+							"id": "44627fee-71f2-4b1f-82dc-ff561da5dea4",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"model_number\": \"DL1000\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/registrations/:deviceId",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"registrations",
+										":deviceId"
+									],
+									"variable": [
+										{
+											"key": "deviceId",
+											"value": "<string>",
+											"description": "(Required) "
+										}
+									]
+								},
+								"description": "Updates a device's registration\n"
+							},
+							"response": [
+								{
+									"id": "b44efeaa-6ce6-4abc-a192-a4a9f99714e7",
+									"name": "Successfully updated a device's registration info",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"model_number\": \"DL1000\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/registrations/:deviceId",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"registrations",
+												":deviceId"
+											],
+											"variable": [
+												{
+													"key": "deviceId",
+													"value": "<string>",
+													"description": "(Required) "
+												}
+											]
+										},
+										"description": "Updates a device's registration\n"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "text",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "text/plain"
+										}
+									],
+									"cookie": [],
+									"body": ""
+								}
+							]
+						}
+					],
+					"id": "b5505c4e-34ab-4be6-aa12-d372b014b1b2"
+				},
+				{
+					"name": "Get all registered devices",
+					"id": "57872062-6845-4621-adfb-25ba2cdd1575",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/registrations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"registrations"
+							]
+						},
+						"description": "Returns all registered devices"
+					},
+					"response": [
+						{
+							"id": "904a0abd-397e-462a-994f-29ece1fd700a",
+							"name": "An array of devices infomation",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/registrations",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"registrations"
+									]
+								},
+								"description": "Returns all registered devices"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"deviceId\": \"2c2119B2aAa1b55\",\n  \"model_number\": \"DL1000\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Register a device",
+					"id": "f8acfe57-1f00-454b-ba95-d24b6fdeb5fd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"deviceId\": \"2c2119B2aAa1b55\",\n  \"model_number\": \"DL1000\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/registrations",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"registrations"
+							]
+						},
+						"description": "Registers a device"
+					},
+					"response": [
+						{
+							"id": "c6ad6cf9-d6ef-4447-9908-17fed5229acd",
+							"name": "Successfully registered a device",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"deviceId\": \"2c2119B2aAa1b55\",\n  \"model_number\": \"DL1000\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/registrations",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"registrations"
+									]
+								},
+								"description": "Registers a device"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "text",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "text/plain"
+								}
+							],
+							"cookie": [],
+							"body": ""
+						}
+					]
+				}
+			],
+			"id": "07adc81c-bddb-4274-9e1d-eb2a5fa12bf7"
+		},
+		{
+			"name": "subscriptions",
+			"item": [
+				{
+					"name": "operation",
+					"item": [
+						{
+							"name": "Delete a subscription",
+							"id": "923594a8-980e-486c-8112-488c16c49514",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "DELETE",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/subscriptions/operation",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"subscriptions",
+										"operation"
+									]
+								},
+								"description": "Deletes a subscription"
+							},
+							"response": [
+								{
+									"id": "f734b76d-6b4d-4a5e-992e-e05917760c3d",
+									"name": "Successfully deleted a subscription",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/subscriptions/operation",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscriptions",
+												"operation"
+											]
+										},
+										"description": "Deletes a subscription"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\",\n  \"status\": true\n}"
+								},
+								{
+									"id": "d0130d42-2088-403a-bcd5-0e1393c574d4",
+									"name": "unexpected error",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/subscriptions/operation",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscriptions",
+												"operation"
+											]
+										},
+										"description": "Deletes a subscription"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": -17966366,\n  \"message\": \"Duis\"\n}"
+								}
+							]
+						},
+						{
+							"name": "Get subscription details",
+							"id": "7bbcc64c-ccf5-4631-ad89-c6221d54ef80",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/subscriptions/operation",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"subscriptions",
+										"operation"
+									]
+								},
+								"description": "Returns subscription specific details"
+							},
+							"response": [
+								{
+									"id": "a9c1e793-739b-4f10-a419-fce28ae66d67",
+									"name": "Successfully retrieved subscription",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/subscriptions/operation",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscriptions",
+												"operation"
+											]
+										},
+										"description": "Returns subscription specific details"
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\",\n  \"credential\": \"credential\",\n  \"security_token\": \"0123456789\",\n  \"devices\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+								},
+								{
+									"id": "bde3af88-02ff-4cb4-87db-8652d44b86cd",
+									"name": "unexpected error",
+									"originalRequest": {
+										"method": "GET",
+										"header": [
+											{
+												"key": "Content-Type",
+												"value": "application/json"
+											},
+											{
+												"key": "Accept",
+												"value": "application/json"
+											}
+										],
+										"body": {
+											"mode": "raw",
+											"raw": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\"\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{baseUrl}}/subscriptions/operation",
+											"host": [
+												"{{baseUrl}}"
+											],
+											"path": [
+												"subscriptions",
+												"operation"
+											]
+										},
+										"description": "Returns subscription specific details"
+									},
+									"status": "Internal Server Error",
+									"code": 500,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "Content-Type",
+											"value": "application/json"
+										}
+									],
+									"cookie": [],
+									"body": "{\n  \"code\": -17966366,\n  \"message\": \"Duis\"\n}"
+								}
+							]
+						}
+					],
+					"id": "d98fd516-45a0-447d-9103-04106f877f18"
+				},
+				{
+					"name": "Create a subscription",
+					"id": "6b73f50b-9b10-4ea1-8240-dd8978510fe9",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\",\n  \"credential\": \"credential\",\n  \"security_token\": \"0123456789\",\n  \"devices\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/subscriptions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"subscriptions"
+							]
+						},
+						"description": "Creates a new subscription"
+					},
+					"response": [
+						{
+							"id": "26136136-8cd2-4a14-87f1-fb9e7b92e426",
+							"name": "Successfully create a subscription",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\",\n  \"credential\": \"credential\",\n  \"security_token\": \"0123456789\",\n  \"devices\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/subscriptions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"subscriptions"
+									]
+								},
+								"description": "Creates a new subscription"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\",\n  \"status\": true\n}"
+						},
+						{
+							"id": "395da78e-0cb9-4410-aef9-a277d0e4b757",
+							"name": "unexpected error",
+							"originalRequest": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\",\n  \"credential\": \"credential\",\n  \"security_token\": \"0123456789\",\n  \"devices\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/subscriptions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"subscriptions"
+									]
+								},
+								"description": "Creates a new subscription"
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"code\": -17966366,\n  \"message\": \"Duis\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Get all subscriptions",
+					"id": "2531e1af-5585-42de-b74c-8ca8abee68cd",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"url": {
+							"raw": "{{baseUrl}}/subscriptions",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"subscriptions"
+							]
+						},
+						"description": "Returns all subscriptions"
+					},
+					"response": [
+						{
+							"id": "ff5a9969-7ad1-4c04-85e2-10227617cdf8",
+							"name": "Successfully create a subscription",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/subscriptions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"subscriptions"
+									]
+								},
+								"description": "Returns all subscriptions"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\",\n  \"credential\": \"credential\",\n  \"security_token\": \"0123456789\",\n  \"devices\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}"
+						},
+						{
+							"id": "a851b55d-19e1-4d1a-8064-a16a9bc161f4",
+							"name": "unexpected error",
+							"originalRequest": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "{{baseUrl}}/subscriptions",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"subscriptions"
+									]
+								},
+								"description": "Returns all subscriptions"
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"code\": -17966366,\n  \"message\": \"Duis\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Add device(s)",
+					"id": "c6b4e98f-27b7-4ece-9705-a4f4fb453d16",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\",\n  \"devices\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/subscriptions/addDevice",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"subscriptions",
+								"addDevice"
+							]
+						},
+						"description": "Adds device(s)"
+					},
+					"response": [
+						{
+							"id": "ba923757-cbc3-42ec-b7e7-6d5b703c9eeb",
+							"name": "Successfully added devices to subscription",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\",\n  \"devices\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/subscriptions/addDevice",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"subscriptions",
+										"addDevice"
+									]
+								},
+								"description": "Adds device(s)"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\",\n  \"status\": true\n}"
+						},
+						{
+							"id": "dd8910ff-890c-4605-85dd-ef881a62ac16",
+							"name": "unexpected error",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\",\n  \"devices\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/subscriptions/addDevice",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"subscriptions",
+										"addDevice"
+									]
+								},
+								"description": "Adds device(s)"
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"code\": -17966366,\n  \"message\": \"Duis\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Remove device(s)",
+					"id": "1407ee1b-1d7b-4a28-b051-cf2eb9f24dff",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\",\n  \"devices\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/subscriptions/removeDevice",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"subscriptions",
+								"removeDevice"
+							]
+						},
+						"description": "Removes device(s)"
+					},
+					"response": [
+						{
+							"id": "4d3fe62f-09d3-46a0-b86f-5e8b127fb6e6",
+							"name": "Successfully removed devices to subscription",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\",\n  \"devices\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/subscriptions/removeDevice",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"subscriptions",
+										"removeDevice"
+									]
+								},
+								"description": "Removes device(s)"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\",\n  \"status\": true\n}"
+						},
+						{
+							"id": "5f3a2d1d-e1cf-4714-8476-0de9c1938184",
+							"name": "unexpected error",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\",\n  \"devices\": [\n    \"<string>\",\n    \"<string>\"\n  ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/subscriptions/removeDevice",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"subscriptions",
+										"removeDevice"
+									]
+								},
+								"description": "Removes device(s)"
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"code\": -17966366,\n  \"message\": \"Duis\"\n}"
+						}
+					]
+				},
+				{
+					"name": "Reactivate a subscription",
+					"id": "1e554d93-5435-45d6-b2c2-916465a33a05",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/subscriptions/reactivate",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"subscriptions",
+								"reactivate"
+							]
+						},
+						"description": "Reactivates a subscription"
+					},
+					"response": [
+						{
+							"id": "8d554f06-a7cb-49f1-bc7a-d1ec17b8eba5",
+							"name": "Successfully reactivated subscription",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/subscriptions/reactivate",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"subscriptions",
+										"reactivate"
+									]
+								},
+								"description": "Reactivates a subscription"
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\",\n  \"status\": true\n}"
+						},
+						{
+							"id": "8c1ac838-c6af-47af-bc21-08909e793a86",
+							"name": "unexpected error",
+							"originalRequest": {
+								"method": "PUT",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Accept",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"url\": \"http://www.cryoport.com/cryotrax\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{baseUrl}}/subscriptions/reactivate",
+									"host": [
+										"{{baseUrl}}"
+									],
+									"path": [
+										"subscriptions",
+										"reactivate"
+									]
+								},
+								"description": "Reactivates a subscription"
+							},
+							"status": "Internal Server Error",
+							"code": 500,
+							"_postman_previewlanguage": "json",
+							"header": [
+								{
+									"key": "Content-Type",
+									"value": "application/json"
+								}
+							],
+							"cookie": [],
+							"body": "{\n  \"code\": -17966366,\n  \"message\": \"Duis\"\n}"
+						}
+					]
+				}
+			],
+			"id": "e2f16ca4-3ee6-410b-a92c-95c40e924923"
+		},
+		{
+			"name": "Set one or more configuration(s) on the device",
+			"id": "a0826d40-65f2-4684-b4e8-b482f8fc00e8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"deviceId\": \"<string>\",\n  \"cfg_seq_num\": -89872945,\n  \"data\": {\n    \"posting_interval\": {\n      \"val\": -17990440,\n      \"uom\": \"qui eu reprehenderit cillum proident\"\n    },\n    \"snsr_logging_interval\": {\n      \"val\": 98580399,\n      \"uom\": \"aliquip mollit\"\n    },\n    \"loc_logging_interval\": {\n      \"val\": -80081784,\n      \"uom\": \"sit consequat\"\n    },\n    \"shk_threshold\": {\n      \"val\": -18013108.471420392,\n      \"uom\": \"ut a\"\n    },\n    \"tc_lo_temp_threshold\": {\n      \"val\": -65835905.75716869,\n      \"uom\": \"sunt elit laboris tempor est\"\n    },\n    \"tc_hi_temp_threshold\": {\n      \"val\": -10790162.617884263,\n      \"uom\": \"nulla sunt\"\n    },\n    \"snsr_mod_lo_temp_threshold\": {\n      \"val\": -53510820.63201567,\n      \"uom\": \"dolore sunt quis\"\n    },\n    \"snsr_mod_hi_temp_threshold\": {\n      \"val\": -14746574.550269559,\n      \"uom\": \"tempor in labore\"\n    },\n    \"snsr_mod_lo_bat_threshold\": {\n      \"val\": -47771177.20164426,\n      \"uom\": \"adipisicing et anim\"\n    },\n    \"dl_lo_bat_threshold\": {\n      \"val\": -81228576.29084663,\n      \"uom\": \"velit proident aliqua laboru\"\n    },\n    \"dl_lo_pressure_threshold\": {\n      \"val\": -50174222.5028349,\n      \"uom\": \"id\"\n    },\n    \"dl_hi_pressure_threshold\": {\n      \"val\": -35435687.4885045,\n      \"uom\": \"Ut eiusmod aute ad\"\n    },\n    \"dl_lo_humidity_threshold\": {\n      \"val\": -69895663.63673684,\n      \"uom\": \"off\"\n    },\n    \"dl_hi_humidity_threshold\": {\n      \"val\": 6456072.284209654,\n      \"uom\": \"aute incididun\"\n    }\n  }\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/configurations/:deviceId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"configurations",
+						":deviceId"
+					],
+					"variable": [
+						{
+							"key": "deviceId",
+							"value": "<string>",
+							"description": "(Required) "
+						}
+					]
+				},
+				"description": "Request to set one or more configuration(s) on the device"
+			},
+			"response": [
+				{
+					"id": "da7f24d2-e4ac-41aa-9ced-7a7200048310",
+					"name": "successfully requested to set one or more configuration(s) on device",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"deviceId\": \"<string>\",\n  \"cfg_seq_num\": -89872945,\n  \"data\": {\n    \"posting_interval\": {\n      \"val\": -17990440,\n      \"uom\": \"qui eu reprehenderit cillum proident\"\n    },\n    \"snsr_logging_interval\": {\n      \"val\": 98580399,\n      \"uom\": \"aliquip mollit\"\n    },\n    \"loc_logging_interval\": {\n      \"val\": -80081784,\n      \"uom\": \"sit consequat\"\n    },\n    \"shk_threshold\": {\n      \"val\": -18013108.471420392,\n      \"uom\": \"ut a\"\n    },\n    \"tc_lo_temp_threshold\": {\n      \"val\": -65835905.75716869,\n      \"uom\": \"sunt elit laboris tempor est\"\n    },\n    \"tc_hi_temp_threshold\": {\n      \"val\": -10790162.617884263,\n      \"uom\": \"nulla sunt\"\n    },\n    \"snsr_mod_lo_temp_threshold\": {\n      \"val\": -53510820.63201567,\n      \"uom\": \"dolore sunt quis\"\n    },\n    \"snsr_mod_hi_temp_threshold\": {\n      \"val\": -14746574.550269559,\n      \"uom\": \"tempor in labore\"\n    },\n    \"snsr_mod_lo_bat_threshold\": {\n      \"val\": -47771177.20164426,\n      \"uom\": \"adipisicing et anim\"\n    },\n    \"dl_lo_bat_threshold\": {\n      \"val\": -81228576.29084663,\n      \"uom\": \"velit proident aliqua laboru\"\n    },\n    \"dl_lo_pressure_threshold\": {\n      \"val\": -50174222.5028349,\n      \"uom\": \"id\"\n    },\n    \"dl_hi_pressure_threshold\": {\n      \"val\": -35435687.4885045,\n      \"uom\": \"Ut eiusmod aute ad\"\n    },\n    \"dl_lo_humidity_threshold\": {\n      \"val\": -69895663.63673684,\n      \"uom\": \"off\"\n    },\n    \"dl_hi_humidity_threshold\": {\n      \"val\": 6456072.284209654,\n      \"uom\": \"aute incididun\"\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/configurations/:deviceId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"configurations",
+								":deviceId"
+							],
+							"variable": [
+								{
+									"key": "deviceId",
+									"value": "<string>",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Request to set one or more configuration(s) on the device"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"id": "5919cc02-a8f0-4ef8-a162-299db3b756b4",
+					"name": "unexpected error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"deviceId\": \"<string>\",\n  \"cfg_seq_num\": -89872945,\n  \"data\": {\n    \"posting_interval\": {\n      \"val\": -17990440,\n      \"uom\": \"qui eu reprehenderit cillum proident\"\n    },\n    \"snsr_logging_interval\": {\n      \"val\": 98580399,\n      \"uom\": \"aliquip mollit\"\n    },\n    \"loc_logging_interval\": {\n      \"val\": -80081784,\n      \"uom\": \"sit consequat\"\n    },\n    \"shk_threshold\": {\n      \"val\": -18013108.471420392,\n      \"uom\": \"ut a\"\n    },\n    \"tc_lo_temp_threshold\": {\n      \"val\": -65835905.75716869,\n      \"uom\": \"sunt elit laboris tempor est\"\n    },\n    \"tc_hi_temp_threshold\": {\n      \"val\": -10790162.617884263,\n      \"uom\": \"nulla sunt\"\n    },\n    \"snsr_mod_lo_temp_threshold\": {\n      \"val\": -53510820.63201567,\n      \"uom\": \"dolore sunt quis\"\n    },\n    \"snsr_mod_hi_temp_threshold\": {\n      \"val\": -14746574.550269559,\n      \"uom\": \"tempor in labore\"\n    },\n    \"snsr_mod_lo_bat_threshold\": {\n      \"val\": -47771177.20164426,\n      \"uom\": \"adipisicing et anim\"\n    },\n    \"dl_lo_bat_threshold\": {\n      \"val\": -81228576.29084663,\n      \"uom\": \"velit proident aliqua laboru\"\n    },\n    \"dl_lo_pressure_threshold\": {\n      \"val\": -50174222.5028349,\n      \"uom\": \"id\"\n    },\n    \"dl_hi_pressure_threshold\": {\n      \"val\": -35435687.4885045,\n      \"uom\": \"Ut eiusmod aute ad\"\n    },\n    \"dl_lo_humidity_threshold\": {\n      \"val\": -69895663.63673684,\n      \"uom\": \"off\"\n    },\n    \"dl_hi_humidity_threshold\": {\n      \"val\": 6456072.284209654,\n      \"uom\": \"aute incididun\"\n    }\n  }\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/configurations/:deviceId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"configurations",
+								":deviceId"
+							],
+							"variable": [
+								{
+									"key": "deviceId",
+									"value": "<string>",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Request to set one or more configuration(s) on the device"
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"code\": -17966366,\n  \"message\": \"Duis\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Execute a Command on device",
+			"id": "0ee69339-6819-4c08-8ada-95014d3e64c4",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"auth": {
+					"type": "oauth2",
+					"oauth2": [
+						{
+							"key": "accessTokenUrl",
+							"value": "https://skytrax-idp.auth.us-west-2.amazoncognito.com/oauth2/token",
+							"type": "string"
+						},
+						{
+							"key": "clientSecret",
+							"value": "p6skctg0ag2a7phong27bea014jpo01vcp1qc7ochhakp9nmuf5",
+							"type": "string"
+						},
+						{
+							"key": "clientId",
+							"value": "1l9lbb148s5tp07ch8jej1lf0c",
+							"type": "string"
+						},
+						{
+							"key": "tokenName",
+							"value": "",
+							"type": "string"
+						},
+						{
+							"key": "grant_type",
+							"value": "client_credentials",
+							"type": "string"
+						},
+						{
+							"key": "addTokenTo",
+							"value": "header",
+							"type": "string"
+						}
+					]
+				},
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"deviceId\": \"<string>\",\n  \"action\": \"CLEAR_DL_HIGH_REL_HUMD_THRESHOLD\"\n}"
+				},
+				"url": {
+					"raw": "{{baseUrl}}/commands/:deviceId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"commands",
+						":deviceId"
+					],
+					"variable": [
+						{
+							"key": "deviceId",
+							"value": "8627710409503810",
+							"description": "(Required) "
+						}
+					]
+				},
+				"description": "Request to execute a command on device"
+			},
+			"response": [
+				{
+					"id": "45fd4a40-8e7c-4312-a7dd-00a3ef3afeac",
+					"name": "successfully requested to execute a command on device",
+					"originalRequest": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"type": "any"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "callBackUrl",
+									"type": "any"
+								},
+								{
+									"key": "authUrl",
+									"type": "any"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://skytrax-idp.auth.us-west-2.amazoncognito.com/oauth2/token",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "1l9lbb148s5tp07ch8jej1lf0c",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "p6skctg0ag2a7phong27bea014jpo01vcp1qc7ochhakp9nmuf5",
+									"type": "string"
+								},
+								{
+									"key": "clientAuth",
+									"type": "any"
+								},
+								{
+									"key": "grantType",
+									"type": "any"
+								},
+								{
+									"key": "scope",
+									"type": "any"
+								},
+								{
+									"key": "username",
+									"type": "any"
+								},
+								{
+									"key": "password",
+									"type": "any"
+								},
+								{
+									"key": "tokenType",
+									"type": "any"
+								},
+								{
+									"key": "redirectUri",
+									"type": "any"
+								},
+								{
+									"key": "refreshToken",
+									"type": "any"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"deviceId\": \"<string>\",\n  \"action\": \"CLEAR_DL_HIGH_REL_HUMD_THRESHOLD\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/commands/:deviceId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"commands",
+								":deviceId"
+							],
+							"variable": [
+								{
+									"key": "deviceId",
+									"value": "8627710409503810",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Request to execute a command on device"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"id": "7db778d3-6361-40e5-8dcc-f9486e618e07",
+					"name": "unexpected error",
+					"originalRequest": {
+						"auth": {
+							"type": "oauth2",
+							"oauth2": [
+								{
+									"key": "accessToken",
+									"type": "any"
+								},
+								{
+									"key": "addTokenTo",
+									"value": "header",
+									"type": "string"
+								},
+								{
+									"key": "callBackUrl",
+									"type": "any"
+								},
+								{
+									"key": "authUrl",
+									"type": "any"
+								},
+								{
+									"key": "accessTokenUrl",
+									"value": "https://skytrax-idp.auth.us-west-2.amazoncognito.com/oauth2/token",
+									"type": "string"
+								},
+								{
+									"key": "clientId",
+									"value": "1l9lbb148s5tp07ch8jej1lf0c",
+									"type": "string"
+								},
+								{
+									"key": "clientSecret",
+									"value": "p6skctg0ag2a7phong27bea014jpo01vcp1qc7ochhakp9nmuf5",
+									"type": "string"
+								},
+								{
+									"key": "clientAuth",
+									"type": "any"
+								},
+								{
+									"key": "grantType",
+									"type": "any"
+								},
+								{
+									"key": "scope",
+									"type": "any"
+								},
+								{
+									"key": "username",
+									"type": "any"
+								},
+								{
+									"key": "password",
+									"type": "any"
+								},
+								{
+									"key": "tokenType",
+									"type": "any"
+								},
+								{
+									"key": "redirectUri",
+									"type": "any"
+								},
+								{
+									"key": "refreshToken",
+									"type": "any"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"deviceId\": \"<string>\",\n  \"action\": \"CLEAR_DL_HIGH_REL_HUMD_THRESHOLD\"\n}"
+						},
+						"url": {
+							"raw": "{{baseUrl}}/commands/:deviceId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"commands",
+								":deviceId"
+							],
+							"variable": [
+								{
+									"key": "deviceId",
+									"value": "8627710409503810",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Request to execute a command on device"
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"code\": -17966366,\n  \"message\": \"Duis\"\n}"
+				}
+			]
+		},
+		{
+			"name": "Create one or more geofences",
+			"id": "818638f8-518b-4c54-8bc1-1d1f74caced8",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Content-Type",
+						"value": "application/json"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": "{\n  \"deviceId\": \"<string>\",\n  \"geofences\": [\n    {\n      \"name\": \"id\",\n      \"gps\": {\n        \"lat\": -7,\n        \"lon\": 148\n      },\n      \"entry_rad\": {\n        \"val\": 300,\n        \"uom\": \"laboris\"\n      },\n      \"exit_rad\": {\n        \"val\": 300,\n        \"uom\": \"amet dolore ut non\"\n      },\n      \"leg_num\": \"quis officia\",\n      \"loc_type\": \"LEG\",\n      \"airport_code\": \"LAX\"\n    },\n    {\n      \"name\": \"cillum dolor\",\n      \"gps\": {\n        \"lat\": 27,\n        \"lon\": 71\n      },\n      \"entry_rad\": {\n        \"val\": 300,\n        \"uom\": \"et amet reprehenderit id adipisicing\"\n      },\n      \"exit_rad\": {\n        \"val\": 300,\n        \"uom\": \"adipisicing quis dolor no\"\n      },\n      \"leg_num\": \"consequat occaecat\",\n      \"loc_type\": \"LEG\",\n      \"airport_code\": \"LAX\"\n    }\n  ]\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{baseUrl}}/geofences/:deviceId",
+					"host": [
+						"{{baseUrl}}"
+					],
+					"path": [
+						"geofences",
+						":deviceId"
+					],
+					"variable": [
+						{
+							"key": "deviceId",
+							"value": "<string>",
+							"description": "(Required) "
+						}
+					]
+				},
+				"description": "Request to create one or more geofences"
+			},
+			"response": [
+				{
+					"id": "f647467b-fca5-454e-8ac0-3a8586569d99",
+					"name": "successfully requested to create to one or more geofence(s) on device",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"deviceId\": \"<string>\",\n  \"geofences\": [\n    {\n      \"name\": \"id\",\n      \"gps\": {\n        \"lat\": -7,\n        \"lon\": 148\n      },\n      \"entry_rad\": {\n        \"val\": 300,\n        \"uom\": \"laboris\"\n      },\n      \"exit_rad\": {\n        \"val\": 300,\n        \"uom\": \"amet dolore ut non\"\n      },\n      \"leg_num\": \"quis officia\",\n      \"loc_type\": \"LEG\",\n      \"airport_code\": \"LAX\"\n    },\n    {\n      \"name\": \"cillum dolor\",\n      \"gps\": {\n        \"lat\": 27,\n        \"lon\": 71\n      },\n      \"entry_rad\": {\n        \"val\": 300,\n        \"uom\": \"et amet reprehenderit id adipisicing\"\n      },\n      \"exit_rad\": {\n        \"val\": 300,\n        \"uom\": \"adipisicing quis dolor no\"\n      },\n      \"leg_num\": \"consequat occaecat\",\n      \"loc_type\": \"LEG\",\n      \"airport_code\": \"LAX\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/geofences/:deviceId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"geofences",
+								":deviceId"
+							],
+							"variable": [
+								{
+									"key": "deviceId",
+									"value": "<string>",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Request to create one or more geofences"
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "text",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "text/plain"
+						}
+					],
+					"cookie": [],
+					"body": ""
+				},
+				{
+					"id": "17372050-39b3-4ce7-8342-66a484cfb5a2",
+					"name": "unexpected error",
+					"originalRequest": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json"
+							},
+							{
+								"key": "Accept",
+								"value": "application/json"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n  \"deviceId\": \"<string>\",\n  \"geofences\": [\n    {\n      \"name\": \"id\",\n      \"gps\": {\n        \"lat\": -7,\n        \"lon\": 148\n      },\n      \"entry_rad\": {\n        \"val\": 300,\n        \"uom\": \"laboris\"\n      },\n      \"exit_rad\": {\n        \"val\": 300,\n        \"uom\": \"amet dolore ut non\"\n      },\n      \"leg_num\": \"quis officia\",\n      \"loc_type\": \"LEG\",\n      \"airport_code\": \"LAX\"\n    },\n    {\n      \"name\": \"cillum dolor\",\n      \"gps\": {\n        \"lat\": 27,\n        \"lon\": 71\n      },\n      \"entry_rad\": {\n        \"val\": 300,\n        \"uom\": \"et amet reprehenderit id adipisicing\"\n      },\n      \"exit_rad\": {\n        \"val\": 300,\n        \"uom\": \"adipisicing quis dolor no\"\n      },\n      \"leg_num\": \"consequat occaecat\",\n      \"loc_type\": \"LEG\",\n      \"airport_code\": \"LAX\"\n    }\n  ]\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{baseUrl}}/geofences/:deviceId",
+							"host": [
+								"{{baseUrl}}"
+							],
+							"path": [
+								"geofences",
+								":deviceId"
+							],
+							"variable": [
+								{
+									"key": "deviceId",
+									"value": "<string>",
+									"description": "(Required) "
+								}
+							]
+						},
+						"description": "Request to create one or more geofences"
+					},
+					"status": "Internal Server Error",
+					"code": 500,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "Content-Type",
+							"value": "application/json"
+						}
+					],
+					"cookie": [],
+					"body": "{\n  \"code\": -17966366,\n  \"message\": \"Duis\"\n}"
+				}
+			]
+		}
+	],
+	"variable": [
+		{
+			"id": "dc4914c4-352c-4ee7-b677-4b4ab127932e",
+			"key": "baseUrl",
+			"value": "https://7omlxn7zhd.execute-api.us-west-2.amazonaws.com/v1",
+			"type": "string"
+		}
+	]
+}

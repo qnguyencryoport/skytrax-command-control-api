@@ -1,0 +1,684 @@
+openapi: 3.0.0
+info:
+    version: "1.0.0"
+    title: Skyttrax Command & Control API Specification
+    description: This API specifies the operations on Skytrax condition monitor device.
+    contact:
+        email: qnguyen@cryoport.com
+    license:
+        name: Cryoport Copyright
+        url: https://www.cryoport.com
+servers:
+    - url: https://7omlxn7zhd.execute-api.us-west-2.amazonaws.com/v1
+paths:
+    /registrations:
+        get:
+            summary: Get all registered devices
+            description: Returns all registered devices
+            tags:
+                - registrations
+            operationId: getRegisteredDevices
+            responses:
+                "200":
+                    description: An array of devices information
+                    content:
+                        application/json:
+                            schema:
+                                type: array
+                                items:
+                                $ref: "#/components/schemas/registrationInfo"
+        post:
+            summary: Register a device
+            description: Registers a device
+            tags:
+                - registrations
+            operationId: registerDevice
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            $ref: "#/components/schemas/registrationInfo"
+            responses:
+                "200":
+                    description: Successfully registered a device
+    /registrations/{deviceId}:
+        get:
+            summary: Get device specific registration information
+            description: |
+                Returns device specific registration information
+            tags:
+                - registrations
+            operationId: getDeviceRegistration
+            parameters:
+                - name: deviceId
+                  in: path
+                  required: true
+                  schema:
+                      $ref: "#/components/schemas/deviceId"
+            responses:
+                "200":
+                    description: Successfully retrieved a device's registration info
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/registrationInfo"
+        put:
+            summary: Update Device Registration
+            description: |
+                Updates a device's registration
+            tags:
+                - registrations
+            operationId: UpdateDeviceRegistration
+            parameters:
+                - name: deviceId
+                  in: path
+                  required: true
+                  schema:
+                      $ref: "#/components/schemas/deviceId"
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            $ref: "#/components/schemas/registrationUpdateInfo"
+            responses:
+                "200":
+                    description: Successfully updated a device's registration info
+    /subscriptions:
+        post:
+            summary: Create a subscription
+            description: Creates a new subscription
+            tags:
+                - subscriptions
+            operationId: createSubscription
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            $ref: "#/components/schemas/subscriptionInfo"
+            responses:
+                "200":
+                    description: Successfully create a subscription
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/subscriptionRespInfo"
+                default:
+                    description: unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/errorInfo"
+        get:
+            summary: Get all subscriptions
+            description: Returns all subscriptions
+            tags:
+                - subscriptions
+            operationId: getSubscriptions
+            responses:
+                "200":
+                    description: Successfully create a subscription
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/subscriptionInfo"
+                default:
+                    description: unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/errorInfo"
+    /subscriptions/operation:
+        delete:
+            summary: Delete a subscription
+            description: Deletes a subscription
+            tags:
+                - subscriptions
+            operationId: deleteSubscription
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            $ref: "#/components/schemas/subscriptionReqInfo"
+            responses:
+                "200":
+                    description: Successfully deleted a subscription
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/subscriptionRespInfo"
+                default:
+                    description: unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/errorInfo"
+        get:
+            summary: Get subscription details
+            description: Returns subscription specific details
+            tags:
+                - subscriptions
+            operationId: getSubscription
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            $ref: "#/components/schemas/subscriptionReqInfo"
+            responses:
+                "200":
+                    description: Successfully retrieved subscription
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/subscriptionInfo"
+                default:
+                    description: unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/errorInfo"
+    /subscriptions/addDevice:
+        put:
+            summary: Add device(s)
+            description: Adds device(s)
+            tags:
+                - subscriptions
+            operationId: addDevices
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            $ref: "#/components/schemas/subscriptionDeviceInfo"
+            responses:
+                "200":
+                    description: Successfully added devices to subscription
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/subscriptionRespInfo"
+                default:
+                    description: unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/errorInfo"
+    /subscriptions/removeDevice:
+        put:
+            summary: Remove device(s)
+            description: Removes device(s)
+            tags:
+                - subscriptions
+            operationId: removeDevices
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            $ref: "#/components/schemas/subscriptionDeviceInfo"
+            responses:
+                "200":
+                    description: Successfully removed devices to subscription
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/subscriptionRespInfo"
+                default:
+                    description: unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/errorInfo"
+    /subscriptions/reactivate:
+        put:
+            summary: Reactivate a subscription
+            description: Reactivates a subscription
+            tags:
+                - subscriptions
+            operationId: reactivateSubscription
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            $ref: "#/components/schemas/subscriptionReqInfo"
+            responses:
+                "200":
+                    description: Successfully reactivated subscription
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/subscriptionRespInfo"
+                default:
+                    description: unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/errorInfo"
+    /configurations/{deviceId}:
+        post:
+            summary: Set one or more configuration(s) on the device
+            description: Request to set one or more configuration(s) on the device
+            tags:
+                - configurations
+            operationId: setConfiguration
+            parameters:
+                - name: deviceId
+                  in: path
+                  required: true
+                  schema:
+                      $ref: "#/components/schemas/deviceId"
+            responses:
+                "200":
+                    description: successfully requested to set one or more configuration(s) on device
+                default:
+                    description: unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/errorInfo"
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            required:
+                                - deviceId
+                                - cfg_seq_num
+                            properties:
+                                deviceId:
+                                    $ref: "#/components/schemas/deviceId"
+                                cfg_seq_num:
+                                    $ref: "#/components/schemas/configSequenceInfo"
+                                data:
+                                    $ref: "#/components/schemas/deviceConfigInfo"
+    /commands/{deviceId}:
+        post:
+            summary: Execute a Command on device
+            description: Request to execute a command on device
+            tags:
+                - commands
+            operationId: executeCommand
+            parameters:
+                - name: deviceId
+                  in: path
+                  required: true
+                  schema:
+                      $ref: "#/components/schemas/deviceId"
+            responses:
+                "200":
+                    description: successfully requested to execute a command on device
+                default:
+                    description: unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/errorInfo"
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                deviceId:
+                                    $ref: "#/components/schemas/deviceId"
+                                action:
+                                    $ref: "#/components/schemas/commandExecEnum"
+    /geofences/{deviceId}:
+        post:
+            summary: Create one or more geofences
+            description: Request to create one or more geofences
+            tags:
+                - geofences
+            operationId: createGeofences
+            parameters:
+                - name: deviceId
+                  in: path
+                  required: true
+                  schema:
+                      $ref: "#/components/schemas/deviceId"
+            responses:
+                "200":
+                    description: successfully requested to create to one or more geofence(s) on device
+                default:
+                    description: unexpected error
+                    content:
+                        application/json:
+                            schema:
+                                type: object
+                                $ref: "#/components/schemas/errorInfo"
+            requestBody:
+                content:
+                    application/json:
+                        schema:
+                            type: object
+                            properties:
+                                deviceId:
+                                    $ref: "#/components/schemas/deviceId"
+                                geofences:
+                                    type: array
+                                    items:
+                                        $ref: "#/components/schemas/geofenceInfo"
+components:
+    schemas:
+        deviceId:
+            type: string
+            minLength: 15
+            maxLength: 15
+            pattern: "^[0-9A-Fa-f]{15}$"
+            description: "Device unique ID number that is specific to the celluar modem."
+            example: 123456789012345
+        urlInfo:
+            type: string
+            description: "End point to send data to"
+            example: "https://www.cryoport.com/cryotrax"
+        deviceConfigInfo:
+            type: object
+            properties:
+                posting_interval:
+                    $ref: "#/components/schemas/timeInfo"
+                snsr_logging_interval:
+                    $ref: "#/components/schemas/timeInfo"
+                loc_logging_interval:
+                    $ref: "#/components/schemas/timeInfo"
+                shk_threshold:
+                    $ref: "#/components/schemas/shockInfo"
+                tc_lo_temp_threshold:
+                    $ref: "#/components/schemas/tempInfo"
+                tc_hi_temp_threshold:
+                    $ref: "#/components/schemas/tempInfo"
+                snsr_mod_lo_temp_threshold:
+                    $ref: "#/components/schemas/tempInfo"
+                snsr_mod_hi_temp_threshold:
+                    $ref: "#/components/schemas/tempInfo"
+                snsr_mod_lo_bat_threshold:
+                    $ref: "#/components/schemas/batInfo"
+                dl_lo_bat_threshold:
+                    $ref: "#/components/schemas/batInfo"
+                dl_lo_pressure_threshold:
+                    $ref: "#/components/schemas/pressureInfo"
+                dl_hi_pressure_threshold:
+                    $ref: "#/components/schemas/pressureInfo"
+                dl_lo_humidity_threshold:
+                    $ref: "#/components/schemas/huminityInfo"
+                dl_hi_humidity_threshold:
+                    $ref: "#/components/schemas/huminityInfo"
+        gpsInfo:
+            type: object
+            required:
+                - lat
+                - lon
+            properties:
+                lat:
+                    type: integer
+                    minimum: -90
+                    maximum: 90
+                lon:
+                    type: integer
+                    minimum: -180
+                    maximum: 180
+        geofenceInfo:
+            type: object
+            required:
+                - name
+                - gps
+                - entry_rad
+                - exit_rad
+                - leg_num
+                - loc_type
+            properties:
+                name:
+                    type: string
+                gps:
+                    $ref: "#/components/schemas/gpsInfo"
+                entry_rad:
+                    $ref: "#/components/schemas/radiusInfo"
+                exit_rad:
+                    $ref: "#/components/schemas/radiusInfo"
+                leg_num:
+                    type: string
+                loc_type:
+                    $ref: "#/components/schemas/locationTypeEnum"
+                airport_code:
+                    type: string
+                    example: LAX
+        registrationInfo:
+            type: object
+            required:
+                - deviceId
+                - model_number
+            properties:
+                deviceId:
+                    $ref: "#/components/schemas/deviceId"
+                model_number:
+                    type: string
+                    example: "DL1000"
+        registrationUpdateInfo:
+            type: object
+            required:
+                - model_number
+            properties:
+                model_number:
+                    type: string
+                    example: "DL1000"
+        subscriptionInfo:
+            type: object
+            required:
+                - url
+                - credential
+                - security_token
+            properties:
+                url:
+                    type: string
+                    format: url
+                    example: "http://www.cryoport.com/cryotrax"
+                credential:
+                    type: string
+                    example: "credential"
+                security_token:
+                    type: string
+                    example: "0123456789"
+                devices:
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/deviceId"
+        subscriptionDeviceInfo:
+            type: object
+            required:
+                - url
+                - devices
+            properties:
+                url:
+                    type: string
+                    format: url
+                    example: "http://www.cryoport.com/cryotrax"
+                devices:
+                    type: array
+                    items:
+                        $ref: "#/components/schemas/deviceId"
+        subscriptionRespInfo:
+            type: object
+            properties:
+                url:
+                    type: string
+                    format: url
+                    example: "http://www.cryoport.com/cryotrax"
+                status:
+                    type: boolean
+                    example: true
+        subscriptionReqInfo:
+            type: object
+            properties:
+                url:
+                    type: string
+                    format: url
+                    example: "http://www.cryoport.com/cryotrax"
+        subscriptionUpdateInfo:
+            type: object
+            required:
+                - new_url
+            properties:
+                new_url:
+                    type: string
+                    format: url
+                    example: "http://www.cryoport.com/cryotrax"
+                credential:
+                    type: string
+                security_token:
+                    type: string
+        configSequenceInfo:
+            type: integer
+            description: "Configuration sequence number."
+        timeInfo:
+            type: object
+            required:
+                - val
+                - uom
+            properties:
+                val:
+                    type: integer
+                uom:
+                    enum:
+                        - minutes
+        tempInfo:
+            type: object
+            required:
+                - val
+                - uom
+            properties:
+                val:
+                    type: number
+                uom:
+                    enum:
+                        - celsius
+        batInfo:
+            type: object
+            required:
+                - val
+                - uom
+            properties:
+                val:
+                    type: number
+                uom:
+                    enum:
+                        - mV
+        pressureInfo:
+            type: object
+            required:
+                - val
+                - uom
+            properties:
+                val:
+                    type: number
+                uom:
+                    enum:
+                        - pascals
+        huminityInfo:
+            type: object
+            required:
+                - val
+                - uom
+            properties:
+                val:
+                    type: number
+                uom:
+                    enum:
+                        - percentages
+        shockInfo:
+            type: object
+            required:
+                - val
+                - uom
+            properties:
+                val:
+                    type: number
+                uom:
+                    enum:
+                        - g
+        radiusInfo:
+            type: object
+            required:
+                - val
+                - uom
+            properties:
+                val:
+                    type: integer
+                    minimum: 0
+                    maximum: 100000
+                    example: 300
+                uom:
+                    enum:
+                        - meters
+        errorInfo:
+            type: object
+            required:
+                - code
+                - message
+            properties:
+                code:
+                    type: integer
+                    format: int32
+                message:
+                    type: string
+        locationTypeEnum:
+            type: string
+            enum:
+                - LEG
+                - WAYPOINT
+                - AIRPORT
+                - FORBIDDEN
+        commandExecEnum:
+            type: string
+            enum:
+                - PAUSE_LOGGING
+                - ABORT_LOGGING
+                - ZERO_OUT_ACCELEROMETER
+                - LOCK
+                - UNLOCK
+                - ACTIVATE_SLEEP_MODE
+                - ENABLE_WIFI_SNIFFING
+                - DISABLE_WIFI_SNIFFING
+                - HARD_REBOOT_DL
+                - HARD_REBOOT_SNSR_MODULE
+                - ENABLE_JSON_COMPRESSION
+                - DISABLE_JSON_COMPRESSION
+                - ENABLE_AIRPLANE_MODE
+                - DISABLE_AIRPLANE_MODE
+                - CLEAR_DL_LOW_REL_HUMD_THRESHOLD
+                - CLEAR_DL_HIGH_REL_HUMD_THRESHOLD
+                - CLEAR_DL_LOW_PRESS_THRESHOLD
+                - CLEAR_DL_HIGH_PRESS_THRESHOLD
+                - CLEAR_DL_LOW_BAT_THRESHOLD
+                - CLEAR_SNSR_LOW_BAT_THRESHOLD
+                - CLEAR_DL_SHOCK_THRESHOLD
+        subscriptionOperEnum:
+            type: string
+            enum:
+                - CREATE_SUB
+                - UPDATE_SUB
+                - DELETE_SUB
+                - GET_SUB
+                - GET_ALL_SUB
+                - ADD_DEVICE
+                - REACTIVATE_SUB
